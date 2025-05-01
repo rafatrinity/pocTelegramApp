@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <h1 id="greeting">Olá!</h1>
+    <button onclick="enviarDados()">Dizer Olá</button>
+
+    <script>
+        Telegram.WebApp.ready(); // Inicializa o Mini App
+        const user = Telegram.WebApp.initDataUnsafe.user; // Dados do usuário
+        if (user) {
+            document.getElementById('greeting').innerText = `Olá, ${user.first_name}!`;
+        }
+
+        function enviarDados() {
+            Telegram.WebApp.sendData("Oi, bot!"); // Envia mensagem ao bot
+        }
+    </script>
+</body>
+</html>
